@@ -7,7 +7,7 @@ require "pdfkit"
 
 module AfipBill
   class Generator
-    attr_reader :afip_bill, :bill_type, :user, :line_items, :header_text
+    attr_reader :afip_bill, :bill_type, :user, :line_items, :header_text, :is_remito
 
     HEADER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_header.html.erb'.freeze
     FOOTER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_footer.html.erb'.freeze
@@ -19,6 +19,7 @@ module AfipBill
       @user = user
       @bill_type = type_a_or_b_bill
       @line_items = line_items
+      @is_remito = is_remito
       @template_header = ERB.new(File.read(HEADER_PATH)).result(binding)
       @template_footer = ERB.new(File.read(FOOTER_PATH)).result(binding)
       @header_text = header_text
