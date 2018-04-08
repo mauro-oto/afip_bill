@@ -11,10 +11,10 @@ module AfipBill
 
     HEADER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_header.html.erb'.freeze
     FOOTER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_footer.html.erb'.freeze
-    BRAVO_CBTE_TIPO = { "01" => "Factura A", "06" => "Factura B" }.freeze
+    BRAVO_CBTE_TIPO = { "01" => "Factura A", "06" => "Factura B", "99" => "Remito" }.freeze
     IVA = 21.freeze
 
-    def initialize(bill, user, line_items = [], header_text = 'ORIGINAL')
+    def initialize(bill, user, line_items = [], header_text = 'ORIGINAL', is_remito = false)
       @afip_bill = JSON.parse(bill)
       @user = user
       @bill_type = type_a_or_b_bill
@@ -25,7 +25,7 @@ module AfipBill
     end
 
     def type_a_or_b_bill
-      BRAVO_CBTE_TIPO[afip_bill["cbte_tipo"]][-1].downcase
+      BRAVO_CBTE_TIPO[afip_bill["cbte_tipo"]].split(" ").last.downcase
     end
 
     def barcode
