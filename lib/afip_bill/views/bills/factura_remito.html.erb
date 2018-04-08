@@ -158,7 +158,7 @@
 
       <div style="left:263.78px;top:22.31px" class="cls_003"><span class="cls_003"><%= header_text %></span></div>
       <div style="left:289.84px;top:43.90px" class="cls_009"><span class="cls_009"> <%= bill_type[0].upcase %> </span></div>
-      <div style="left:341.00px;top:53.33px" class="cls_004"><span class="cls_004"><%= is_remito ? "REMITO" : "FACTURA" %></span></div>
+      <div style="left:341.00px;top:55.00px" class="cls_004"><span class="cls_004"><%= is_remito ? "REMITO" : "FACTURA" %></span></div>
       <div style="text-align:center;width:200px;left:50.00px;top:51px" class="cls_004"><span class="cls_004"> <%= AfipBill.configuration[:header_business_name] %></span></div>
       <div style="left:282.94px;top:72.04px" class="cls_010"><span class="cls_010">COD. 01</span></div>
       <div style="left:341.00px;top:84.24px" class="cls_002"><span class="cls_002">Punto de Venta:</span></div>
@@ -194,16 +194,16 @@
       <% @line_items.each_with_index do |line_item, index| %>
         <div style="left:18.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= (index + 1).to_s.rjust(3, "0") %></span></div>
         <div style="text-align:center;width:200px;left:57.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.name %></span></div>
-        <div style="width:60px;left:37%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.quantity.to_s.tr(".", ",") %> </span></div>
+        <div style="width:60px;left:50%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.quantity.to_s.tr(".", ",") %> </span></div>
         <% top += 25 %>
       <% end %>
 
-      <div style="left:18.00px;top:589.63px" class="cls_010"><span class="cls_010">TRANSPORTISTA:</span></div>
-      <div style="left:331.43px;top:589.63px" class="cls_010"><span class="cls_010">CUIT:</span></div>
+      <div style="left:18.00px;top:589.63px" class="cls_010"><span style="font-size:9.5px" class="cls_010">TRANSPORTISTA:</span></div>
+      <div style="left:331.43px;top:589.63px" class="cls_010"><span style="font-size:9.5px" class="cls_010">CUIT:</span></div>
 
       <div style="left:18.43px;top:642.63px" class="cls_002"><span class="cls_002">_ _ _ _ _ _ _ _ _ _ _ _</span></div>
-      <div style="left:18.43px;top:642.63px" class="cls_002"><span class="cls_002">RECIBI CONFORME</span></div>
-      <div style="left:331.43px;top:656.63px" class="cls_002"><span class="cls_002">_ _ _ _ _ _ _ _ _ _ _ _</span></div>
+      <div style="left:18.43px;top:656.63px" class="cls_002"><span class="cls_002">RECIBI CONFORME</span></div>
+      <div style="left:331.43px;top:642.63px" class="cls_002"><span class="cls_002">_ _ _ _ _ _ _ _ _ _ _ _</span></div>
       <div style="left:331.43px;top:656.63px" class="cls_002"><span class="cls_002">ACLARACION</span></div>
 
       <div style="left:100px;top:775px" class="cls_008"><span class="cls_008"><%= barcode.data %></span></div>
