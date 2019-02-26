@@ -67,7 +67,7 @@ module AfipBill
     end
 
     def pdfkit_template
-      PDFKit.new(template, disable_smart_shrinking: true)
+      PDFKit.new(template, zoom: 1.33)
     end
 
     def template
