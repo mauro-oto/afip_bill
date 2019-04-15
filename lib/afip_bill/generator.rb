@@ -67,7 +67,7 @@ module AfipBill
     end
 
     def pdfkit_template
-      PDFKit.new(template, dpi: 400)
+      PDFKit.new(template, dpi: 400, page_size: "A4")
     end
 
     def template
