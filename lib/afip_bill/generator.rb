@@ -67,7 +67,7 @@ module AfipBill
     end
 
     def pdfkit_template
-      PDFKit.new(template, dpi: 400, page_size: "A4", print_media_type: true)
+      PDFKit.new(template, dpi: 400, page_size: "A4", print_media_type: true, margin_bottom: "0.25in", margin_top: "0.25in", margin_left: "0.25in", margin_right: "0.25in")
     end
 
     def template
