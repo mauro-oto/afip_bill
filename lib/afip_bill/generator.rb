@@ -7,19 +7,19 @@ require "pdfkit"
 
 module AfipBill
   class Generator
-    attr_reader :afip_bill, :bill_type, :user, :line_items, :header_text, :is_remito
+    attr_reader :afip_bill, :bill_type, :user, :line_items, :header_text, :nota_de_credito
 
     HEADER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_header.html.erb'.freeze
     FOOTER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_footer.html.erb'.freeze
     BRAVO_CBTE_TIPO = { "01" => "Factura A", "06" => "Factura B", "99" => "Remito" }.freeze
     IVA = 21.freeze
 
-    def initialize(bill, user, line_items = [], header_text = 'ORIGINAL', is_remito = false)
+    def initialize(bill, user, line_items = [], header_text = 'ORIGINAL', nota_de_credito = false)
       @afip_bill = JSON.parse(bill)
       @user = user
       @bill_type = type_a_or_b_bill
       @line_items = line_items
-      @is_remito = is_remito
+      @nota_de_credito = nota_de_credito
       @template_header = ERB.new(File.read(HEADER_PATH)).result(binding)
       @template_footer = ERB.new(File.read(FOOTER_PATH)).result(binding)
       @header_text = header_text
