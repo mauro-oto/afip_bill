@@ -11,7 +11,7 @@ module AfipBill
 
     HEADER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_header.html.erb'.freeze
     FOOTER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_footer.html.erb'.freeze
-    BRAVO_CBTE_TIPO = { "01" => "Factura A", "06" => "Factura B", "99" => "Remito" }.freeze
+    BRAVO_CBTE_TIPO = { "01" => "Factura A", "03" => "Nota de Credito A", "06" => "Factura B", "99" => "Remito" }.freeze
     IVA = 21.freeze
 
     def initialize(bill, user, line_items = [], header_text = 'ORIGINAL', nota_de_credito = false)
